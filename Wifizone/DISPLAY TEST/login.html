@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D I S P L A Y no limit</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/particles-style.css">
+
+  <style>
+    /* ===== Animation Glowing ===== */
+    @keyframes glowing {
+      0%   { box-shadow: 0 0 2px  rgba(255,255,255,0.15); }
+      50%  { box-shadow: 0 0 10px rgba(255,255,255,0.3); }
+      100% { box-shadow: 0 0 2px  rgba(255,255,255,0.15); }
+    }
+
+    .modal-title.forfait-titre {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ffa601;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255,165,0,0.5);
+    }
+
+    .btn-trial {
+    margin-top: 20px;
+    }
+
+    .btn-acheter-style {
+    background: linear-gradient(45deg, #FF5722, #FF9800);
+    color: white;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    padding: 12px 30px;
+    font-weight: bold;
+    font-size: 1.4em;
+    box-shadow: 0 0 20px rgba(255,87,34,0.7);
+    transition: all 0.3s;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    }
+  .btn-acheter-style:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+    }
+
+    .btn-details {
+    font-size: 1.5em;       /* Agrandit le texte du bouton */
+    padding: 12px 20px;     /* Agrandit la zone cliquable */
+    margin-top: 10px;
+    }
+
+    /* Détails des forfaits */
+    .detail-box {
+    font-size: 1.3em;          /* Agrandir le texte */
+    line-height: 1.6em;        /* Espacement vertical entre lignes */
+    margin-top: 10px;
+    color: #ffc107;            /* Jaune chaud (peut être ajusté) */
+    font-weight: 500;
+    }
+
+    /* ===== Modal Backdrop ===== */
+    .modal-backdrop.show {
+      background-color: rgba(0,0,0,0.8) !important;
+    }
+
+    /* ===== Modal Content ===== */
+    .modal-content {
+      background-color: rgba(0,0,0,0.7) !important;
+      border: none;
+      animation: glowing 2s infinite alternate;
+    }
+
+    /* ===== Center Modals ===== */
+    .modal-dialog {
+      display: flex;
+      align-items: center;
+      min-height: calc(100% - 1rem);
+    }
+
+    /* ===== Body BG ===== */
+    body {
+      background: url(img/fondo.jpg) no-repeat center center fixed;
+      background-size: cover;
+      margin: 0; padding-bottom: 60px;
+    }
+
+    /* ===== Se Connecter Button ===== */
+    #entrar {
+      padding: 1% 13%;
+      text-transform: uppercase;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      border: none;
+      position: relative; top: -15vh;
+      transform: scale(1.5);
+      box-shadow: 0 0 1px rgba(255,255,255,0.3);
+      animation: glowing 2s infinite alternate 2s;
+    }
+    #entrar:hover {
+      background: rgba(0,0,0,0.7);
+    }
+
+    /* ===== Test Button ===== */
+    #testBtn {
+      position: fixed; bottom: 20px; right: 20px; z-index:1000;
+      background: linear-gradient(45deg,#FF5722,#FF9800);
+      border: 2px solid #fff; border-radius:30px;
+      padding:12px 30px; color:#fff; font-weight:bold;
+      box-shadow:0 0 20px rgba(255,87,34,0.7);
+      cursor:pointer; transition:0.3s;
+    }
+    #testBtn:hover {
+      transform: scale(1.05); opacity:0.9;
+    }
+
+    .btn-purple {
+      font-size: 1.6em;           /* Agrandit le texte des 4 boutons */
+      padding: 15px 25px;         /* Agrandit le bouton lui-même */
+      font-weight: bold;
+      letter-spacing: 1px;        /* Espacement des lettres (facultatif) */
+    }
+
+    /* ===== Purple Buttons ===== */
+    .btn-purple {
+      background: purple; color: #fff; border:none;
+      text-transform: uppercase; width:100%; padding:10px; margin-bottom:10px;
+    }
+    .btn-purple:hover {
+      background: darkviolet;
+    }
+
+    /* ===== Details Link ===== */
+    .btn-details {
+      background: transparent; border:none;
+      color: #4fc3f7; text-decoration: underline;
+      cursor: pointer; margin-top: 8px;
+    }
+
+    /* ===== Ticket Design ===== */
+    .ticket-design {
+      border: 2px dashed #1d001a; padding:20px; margin:15px;
+    }
+    .ticket-design h3 { color:#ffa601; font-size:1.5em; font-weight:bold; }
+    .ticket-design h4 { font-size:2em; font-weight:bold; margin:1rem 0; }
+    .ticket-design p { font-size:1.5em; margin-top:2rem; }
+
+    .btn-group-custom {
+      display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
+    }
+    .contact-link {
+      text-decoration: underline; color: #4fc3f7!important;
+      font-size:2em; margin-top:2rem; display:block; cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <!-- CHAP AUTH -->
+  $(if chap-id)
+  <form name="sendin" action="$(link-login-only)" method="post">
+    <input type="hidden" name="username">
+    <input type="hidden" name="password">
+    <input type="hidden" name="dst" value="$(link-orig)">
+    <input type="hidden" name="popup" value="true">
+  </form>
+  <script src="/md5.js"></script>
+  <script>
+    function doLogin() {
+      document.sendin.username.value = document.login.username.value;
+      document.sendin.password.value = hexMD5(
+        '$(chap-id)' + document.login.password.value + '$(chap-challenge)'
+      );
+      document.sendin.submit();
+      return false;
+    }
+  </script>
+  $(endif)
+
+  <!-- FOOTER + AUDIO -->
+  <footer class="footer">
+    <div class="container text-center">
+      <button id="entrar" class="btn btn-light btn-lg" data-toggle="modal"
+              data-target="#entrarModal">Se Connecter</button>
+    </div>
+    <div class="container text-center">
+      <audio controls autoplay class="audio-btn">
+        <source src="/audio/audio.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </footer>
+
+  <!-- TEST BUTTON -->
+  <button id="testBtn" data-amount="196" data-description="Achat voucher 200 F – 1 jour - NORMAL" data-profile="CODENORMAL" data-customer-email="displayclientwifi@gmail.com" data-customer-lastname="Clientwifi" data-customer-firstname="Forfaitnormal">
+    CODE 24H / 200F
+  </button>
+
+  <!-- ====== MODALS ====== -->
+
+  <!-- Connexion Display -->
+  <div class="modal fade" id="entrarModal" tabindex="-1" role="dialog" data-backdrop="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title text-light">Connexion Display</h5>
+          <button type="button" class="close text-light" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body text-light">
+          <form name="login" action="$(link-login-only)" method="post"
+                $(if chap-id) onsubmit="return doLogin()" $(endif)>
+            <div class="form-group">
+              <label>Utilisateur :</label>
+              <input name="username" class="form-control"
+                     placeholder="Nom d'utilisateur">
+            </div>
+            <div class="form-group">
+              <label>Mot de passe :</label>
+              <input name="password" type="password" class="form-control"
+                     placeholder="Mot de passe">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
+          </form>
+
+          $(if trial == 'yes')
+          <a href="$(link-login-only)?dst=$(link-orig-esc)&username=T-$(mac-esc)" 
+            class="btn btn-success btn-block btn-trial">
+            15 Min Gratuites / Jour (PROMO)
+          </a>
+          $(endif)
+
+          <button class="btn-purple mt-3"
+          style="font-size:1.3em; padding:15px 20px;"
+          data-toggle="modal" data-target="#achatForfaitsInternetModal">
+          ACHAT FORFAITS INTERNET
+          </button>
+          <p style="text-align:center; color:#faedc6; font-size:1.0em; font-weight:bold; margin-top:10px;">
+          ✅ Whatsapp 56 56 56 99<br>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Achat Forfaits Internet -->
+  <div class="modal fade" id="achatForfaitsInternetModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content p-3">
+        <div class="modal-header border-0">
+          <h5 class="modal-title text-light">FORFAITS INTERNET</h5>
+          <button type="button" class="close text-light" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <button class="btn-purple mb-2" data-toggle="modal"
+                  data-target="#forfaitNormalModal">FORFAIT NORMAL</button>
+          <button class="btn-purple mb-2" data-toggle="modal"
+                  data-target="#forfaitPremiumModal">FORFAIT PREMIUM</button>
+          <button class="btn-purple mb-2" data-toggle="modal"
+                  data-target="#forfaitVipModal">FORFAIT VIP</button>
+          <button class="btn-purple mb-2" data-toggle="modal"
+                  data-target="#forfaitFlashModal">FORFAIT FLASH</button>
+          <button class="btn-purple" data-toggle="modal"
+                  data-target="#forfaitIllimiteModal">FORFAIT ILLIMITÉ</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Forfait Normal Modal -->
+  <div class="modal fade" id="forfaitNormalModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content p-3">
+        <div class="modal-header border-0">
+          <h5 class="modal-title forfait-titre">FORFAIT NORMAL</h5>
+          <button type="button" class="close text-light" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body text-center">
+          <button class="btn-acheter-style pay-btn" data-amount="196" data-description="Achat voucher 200 F – 1 jour - NORMAL" data-profile="CODENORMAL" data-customer-email="displayclientwifi@gmail.com" data-customer-lastname="Clientwifi" data-customer-firstname="Forfaitnormal">
+            ACHETER 200F – 1 JOUR
+          </button>
+          <button class="btn-details" onclick="showDetails('normal')">Détails</button>
+          <div id="details-normal" class="detail-box" style="display:none;">
+            Vitesse : 2M/2M<br>
+            Validité : 24 heures après activation
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <button class="btn btn-secondary" onclick="retourVersForfaitsInternet()">Retour</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Forfait Premium Modal -->
+  <div class="modal fade" id="forfaitPremiumModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content p-3">
+        <div class="modal-header border-0">
+          <h5 class="modal-title forfait-titre">FORFAIT PREMIUM</h5>
+          <button type="button" class="close text-light" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body text-center">
+          <button class="btn-acheter-style pay-btn" data-amount="295" data-description="Achat voucher 300 F – 1 jour - PREMIUM" data-profile="CODEPRENIUM" data-customer-email="displayclientwifi@gmail.com" data-customer-lastname="Clientwifi" data-customer-firstname="Forfaitpremium">
+            ACHETER 300F – 1 JOUR
+          </button>
+          <button class="btn-details" onclick="showDetails('premium')">Détails</button>
+          <div id="details-premium" class="detail-box" style="display:none;">
+            Vitesse : 4M/4M (2× rapide)<br>
+            Validité : 24 heures après activation
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <button class="btn btn-secondary" onclick="retourVersForfaitsInternet()">Retour</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Forfait VIP Modal -->
+  <div class="modal fade" id="forfaitVipModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content p-3">
+        <div class="modal-header border-0">
+          <h5 class="modal-title forfait-titre">FORFAIT VIP 2 JOURS</h5>
+          <button type="button" class="close text-light" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body text-center">
+          <button class="btn-acheter-style pay-btn" data-amount="491" data-description="Achat voucher 500 F – 2 jours - VIP" data-profile="CODEVIP" data-customer-email="displayclientwifi@gmail.com" data-customer-lastname="Clientwifi" data-customer-firstname="Forfaitvip">
+            ACHETER 500F – 2 JOURS
+          </button>
+          <button class="btn-details" onclick="showDetails('vip')">Détails</button>
+          <div id="details-vip" class="detail-box" style="display:none;">
+            Vitesse : 10M/10M (3× rapide)<br>
+            Validité : 48 heures après activation
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <button class="btn btn-secondary" onclick="retourVersForfaitsInternet()">Retour</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Forfait Flash Modal -->
+  <div class="modal fade" id="forfaitFlashModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content p-3">
+        <div class="modal-header border-0">
+          <h5 class="modal-title forfait-titre">FORFAIT FLASH 3 JOURS</h5>
+          <button type="button" class="close text-light" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body text-center">
+          <button class="btn-acheter-style pay-btn" data-amount="982" data-description="Achat voucher 1000 F – 3 jours - FLASH" data-profile="CODEFLASH" data-customer-email="displayclientwifi@gmail.com" data-customer-lastname="Clientwifi" data-customer-firstname="Forfaitflash">
+            ACHETER 1000F – 3 JOURS
+          </button>
+          <button class="btn-details" onclick="showDetails('flash')">Détails</button>
+          <div id="details-flash" class="detail-box" style="display:none;">
+            Vitesse : 20M/20M (Ultra rapide)<br>
+            Validité : 72 heures après activation
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <button class="btn btn-secondary" onclick="retourVersForfaitsInternet()">Retour</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Forfait Illimité Modal -->
+  <div class="modal fade" id="forfaitIllimiteModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content p-3">
+        <div class="modal-header border-0">
+          <h5 class="modal-title forfait-titre">FORFAIT ILLIMITÉ 3 JOURS</h5>
+          <button type="button" class="close text-light" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body text-center">
+          <button class="btn-acheter-style pay-btn" data-amount="1960" data-description="Achat voucher 2000 F – 3 jours - ILLIMITE" data-profile="CODEILLIMITE" data-customer-email="displayclientwifi@gmail.com" data-customer-lastname="Clientwifi" data-customer-firstname="Forfaitillimite">
+            ACHETER 2000F – 3 JOURS
+          </button>
+          <button class="btn-details" onclick="showDetails('illimite')">Détails</button>
+          <div id="details-illimite" class="detail-box" style="display:none;">
+            Vitesse : 50M/50M (Maximale)<br>
+            Validité : 72 heures après activation
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <button class="btn btn-secondary" onclick="retourVersForfaitsInternet()">Retour</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ticket & Avertissement Modals -->
+
+  <!-- SCRIPTS -->
+  <script src="../particles.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>  
+  <script>
+    function showDetails(id) {
+      const el = document.getElementById(`details-${id}`);
+      el.style.display = el.style.display === 'none' ? 'block' : 'none';
+    }
+    function displayTicket(user, pass, duration="2 MINUTES", expiry="2 minutes") {
+      document.getElementById("ticketUser").textContent = `Utilisateur: ${user}`;
+      document.getElementById("ticketPass").textContent = `Mot de passe: ${pass}`;
+      document.getElementById("ticketDuration").textContent = duration;
+      document.getElementById("ticketExpiry").textContent   = expiry;
+      $('#ticketModal').modal('show');
+    }
+    function downloadTXT() {
+      const user = document.getElementById("ticketUser").textContent.split(": ")[1];
+      const pass = document.getElementById("ticketPass").textContent.split(": ")[1];
+      const now = new Date().toLocaleString('fr-FR').replace(/[\/,: ]+/g,'-');
+      const content = `TICKET DISPLAY\n\nUtilisateur: ${user}\nMot de passe: ${pass}\nExpire en 2 minutes`;
+      const blob = new Blob([content], {type:"text/plain"});
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `Ticket-${now}.txt`;
+      a.click();
+    }
+    function downloadJPEG() {
+      html2canvas(document.querySelector('.ticket-design'), {scale:2,useCORS:true})
+        .then(canvas => {
+          const a = document.createElement("a");
+          a.href = canvas.toDataURL("image/jpeg",0.9);
+          a.download = `Ticket-${new Date().toLocaleString('fr-FR')}.jpg`;
+          a.click();
+        });
+    }
+    function shareWhatsApp() {
+      const user = document.getElementById("ticketUser").textContent.split(": ")[1];
+      const pass = document.getElementById("ticketPass").textContent.split(": ")[1];
+      const msg = encodeURIComponent(
+        `🗝 TICKET DISPLAY\n\nUtilisateur:${user}\nMot de passe:${pass}\nExpire en 2 minutes\n\n👉 display.bj`
+      );
+      window.open(`https://wa.me/?text=${msg}`,"_blank");
+    }  
+    function closePage() {
+      window.location.href = "http://10.10.10.1/login?popup=true";
+    }
+    function contactUs() {
+      window.open("https://api.whatsapp.com/send?phone=22956565699","_blank");
+    }
+  </script>
+
+<script src="https://cdn.fedapay.com/checkout.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const PUBLIC_KEY = 'pk_live_s8rEZqsSNfYxoWQiD3CNDa7F';
+    const REDIR = 'http://10.10.10.160:5656/voucher/';
+    const btns = [
+      ...document.querySelectorAll('.pay-btn'),
+      document.getElementById('testBtn')
+    ].filter(b => b);
+
+    console.log("📦 Initialisation Fedapay avec", btns.length, "boutons");
+
+    btns.forEach(btn => {
+      const amt = parseInt(btn.dataset.transactionAmount || btn.dataset.amount, 10);
+      const desc = btn.dataset.transactionDescription || btn.dataset.description;
+      const profile = btn.dataset.profile || 'CODENORMAL'; // Récupérer le profil
+
+      console.log("🔘 Config bouton :", { amount: amt, description: desc, profile: profile });
+
+      FedaPay.init(btn, {
+        public_key: PUBLIC_KEY,
+        transaction: {
+          amount: amt,
+          currency: 'XOF',
+          description: desc,
+          customer: {
+            email: 'display56565699@gmail.com',
+            lastname: 'ClientWifi',
+            firstname: 'ClientWifi'
+          }
+        },
+        onComplete(tx) {
+          console.log("✅ Paiement complété → tx =", tx);
+          if (tx && tx.transaction && tx.transaction.id) {
+            const txId = tx.transaction.id;
+            const ticketType = profile.toLowerCase().replace('code', 'ticket');
+            console.log("🚀 Redirection vers :", REDIR + txId + "?profile=" + profile);
+            window.location.href = REDIR + txId + "?profile=" + profile;
+          } else {
+            alert("Erreur: identifiant de transaction non reçu.");
+            console.error("⚠️ tx.transaction.id est undefined !");
+          }
+        },
+        onCancel() {
+          alert('Paiement annulé. Aucun voucher généré.');
+        }
+      });
+    });
+  });
+</script>
+<script>
+  // Fermer tous les autres modals quand un nouveau s'ouvre
+  $(document).on('show.bs.modal', function (event) {
+    const openedModals = $('.modal.show');
+    openedModals.not(event.target).modal('hide');
+  });
+
+  // Fonction pour retour vers forfaits
+  function retourVersForfaitsInternet() {
+    $('.modal').modal('hide');
+    setTimeout(() => {
+      $('#achatForfaitsInternetModal').modal('show');
+    }, 300);
+  }
+</script>
+</body>
+</html>

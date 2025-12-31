@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Ticket Wi-Fi Premium</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html,body{margin:0;height:100%;display:flex;align-items:center;justify-content:center;background:#000000;color:#fff;font-family:'Segoe UI',sans-serif}
+    .card{background:linear-gradient(135deg,#8a2be2,#b51a8e);border-radius:30px;padding:clamp(20px,5vw,60px) clamp(15px,5vw,40px);width:90%;max-width:500px;text-align:center;box-shadow:0 0 40px rgba(138,43,226,.6)}
+    .title{font-size:clamp(1.5rem,5vw,2.5rem);margin-bottom:15px}
+    .code{font-size:clamp(1.5rem,5vw,2.5rem);font-weight:bold;margin:10px 0}
+    .btn-group{display:flex;flex-direction:column;gap:12px;margin-top:25px}
+    .btn{padding:clamp(10px,3vw,18px);border:none;border-radius:25px;font-size:clamp(1rem,3vw,1.3rem);font-weight:bold;cursor:pointer;transition:.3s}
+    .btn-connect{background:#b94fda;color:#fff}
+    .btn-txt{background:#2196f3;color:#fff}
+    .btn-pdf{background:#ff5722;color:#fff}
+    .btn-wa{background:#14a17e;color:#fff}
+    .btn:hover{transform:scale(1.05)}
+    @media (max-width:600px){.card{transform:scale(1)}}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div style="margin-top:15px;font-size:1.2em;color:#ffffff;">DISPLAY TE REMERCIE !</div>
+    <div class="title">Ticket 🎫 Wi-Fi Premium</div>
+    <div class="code">Utilisateur : <span id="u">---</span></div>
+    <div class="code">Mot de passe : <span id="p">---</span></div>
+    <div style="margin-top:15px;font-size:1.2em;color:#f3e77c;">⏳ Valide 24 h après activation</div>
+    <div style="margin-top:10px;font-size:1em;color:#4fc3f7;">📊 Vitesse : 4M/4M (2× plus rapide)</div>
+    <div class="btn-group">
+      <button class="btn btn-connect" onclick="connectNow()">🔑 Se connecter avec</button>
+      <button class="btn btn-txt" onclick="downloadTXT()">📄 Télécharger</button>
+      <button class="btn btn-pdf" onclick="downloadPDF()">📄 PDF/Windows</button>
+      <button class="btn btn-wa" onclick="shareWhatsApp()">💬 Via WhatsApp</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const user = params.get('user');
+    const pass = params.get('pass');
+    document.getElementById('u').textContent = user;
+    document.getElementById('p').textContent = pass;
+
+    function connectNow() {
+      window.location.href = `http://10.10.10.1/login?username=${user}&password=${pass}&popup=true`;
+    }
+    function downloadTXT() {
+      const blob = new Blob([`Utilisateur: ${user}\nMot de passe: ${pass}\nValide 24h après activation\nVitesse: 4M/4M (2× plus rapide)`], {type:'text/plain'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `Ticket-Premium-${user}.txt`;
+      a.click();
+    }
+    function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.setFontSize(18);
+      doc.text("🎫 Ticket Wi-Fi Premium", 20, 20);
+      doc.text(`Utilisateur : ${user}`, 20, 40);
+      doc.text(`Mot de passe : ${pass}`, 20, 55);
+      doc.text("Valide 24h après activation", 20, 75);
+      doc.text("Vitesse : 4M/4M (2× plus rapide)", 20, 90);
+      doc.save(`Ticket-Premium-${user}.pdf`);
+    }
+    function shareWhatsApp() {
+      const msg = encodeURIComponent(`🎫 Ticket Wi-Fi Premium\nUtilisateur: ${user}\nMot de passe: ${pass}\nValide 24h après activation\nVitesse: 4M/4M (2× plus rapide)\n\n👉 display.bj`);
+      window.open(`https://wa.me/?text=${msg}`, '_blank');
+    }
+  </script>
+</body>
+</html>
