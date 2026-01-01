@@ -1,0 +1,577 @@
+{
+  "name": "transaction.approved",
+  "object": "transaction",
+  "entity": {
+    "klass": "v1/transaction",
+    "id": 107978869,
+    "reference": "trx_koo_1765430411279",
+    "amount": 196,
+    "description": "Achat voucher 200 F – 1 jour - NORMAL",
+    "callback_url": "https://checkout.fedapay.com/transactions/callback?secured_id=secured_id_prsvizyo7&public_key=pk_live_s8rEZqsSNfYxoWQiD3CNDa7F&site_domain=display.bj",
+    "status": "approved",
+    "customer_id": 4963661,
+    "currency_id": 1,
+    "mode": "mtn_open",
+    "operation": "payment",
+    "metadata": {
+      "expire_schedule_jobid": "867b5f59bf628030aad648af",
+      "paid_customer": {
+        "firstname": "Forfaitnormal",
+        "lastname": "Clientwifi",
+        "email": "displayclientwifi@gmail.com"
+      }
+    },
+    "commission": "0.018",
+    "fees": 4,
+    "fixed_commission": 0,
+    "amount_transferred": 196,
+    "created_at": "2025-12-11T05:20:11.279Z",
+    "updated_at": "2025-12-11T05:20:43.376Z",
+    "approved_at": "2025-12-11T05:20:43.339Z",
+    "canceled_at": null,
+    "declined_at": null,
+    "refunded_at": null,
+    "transferred_at": null,
+    "deleted_at": null,
+    "last_error_code": "API_ERROR",
+    "custom_metadata": null,
+    "amount_debited": 200,
+    "receipt_url": null,
+    "payment_method_id": 126979221,
+    "sub_accounts_commissions": null,
+    "transaction_key": "11109649850",
+    "merchant_reference": null,
+    "account_id": 61813,
+    "balance_id": 1568580,
+    "payment_token": null,
+    "payment_url": null,
+    "flags": [],
+    "to_be_transferred_at": "2025-12-14T05:20:43.316Z",
+    "customer": {
+      "klass": "v1/customer",
+      "id": 4963661,
+      "firstname": "Forfaitnormal",
+      "lastname": "Clientwifi",
+      "full_name": "Forfaitnormal Clientwifi",
+      "email": "displayclientwifi@gmail.com",
+      "account_id": 61813,
+      "phone_number_id": null,
+      "created_at": "2025-07-21T14:18:52.874Z",
+      "updated_at": "2025-11-30T18:56:56.922Z",
+      "deleted_at": null
+    },
+    "currency": {
+      "klass": "v1/currency",
+      "id": 1,
+      "name": "FCFA",
+      "iso": "XOF",
+      "code": 952,
+      "prefix": null,
+      "suffix": "CFA",
+      "div": 1,
+      "default": true,
+      "created_at": "2018-05-28T15:29:17.866Z",
+      "updated_at": "2025-10-16T11:44:56.224Z",
+      "modes": [
+        "mtn",
+        "cybersource",
+        "moov",
+        "mtn_ci",
+        "moov_tg",
+        "orange_ci",
+        "orange_sn",
+        "free_sn",
+        "airtel_ne",
+        "togocel",
+        "orange_ml",
+        "mtn_open",
+        "mtn_ecw",
+        "ecobank_tpe",
+        "orabank_tpe",
+        "uba",
+        "stripe_gw",
+        "uba_atm",
+        "bmo",
+        "mtn_open_ci",
+        "sbin",
+        "wave_sn",
+        "wave_ci",
+        "moov_ci",
+        "moov_bf",
+        "orange_bf",
+        "coris_money",
+        "wave_direct_ci",
+        "my_feda",
+        "bank_transfer",
+        "gim_uemoa_card"
+      ]
+    },
+    "payment_method": {
+      "klass": "v1/payment_method",
+      "id": 126979221,
+      "brand": "mtn_open",
+      "country": "BJ",
+      "number": "2290156565699",
+      "deleted_at": null,
+      "created_at": "2025-12-11T05:20:27.868Z",
+      "updated_at": "2025-12-11T05:20:27.868Z",
+      "method": "phone"
+    },
+    "balance": {
+      "klass": "v1/balance",
+      "id": 1568580,
+      "amount": 10218,
+      "mode": "mtn",
+      "created_at": "2024-12-31T07:33:08.373Z",
+      "updated_at": "2024-12-31T07:33:08.373Z"
+    },
+    "refunds": []
+  },
+  "account": {
+    "klass": "v1/account",
+    "id": 61813,
+    "name": "Display",
+    "timezone": "UTC",
+    "country": "BJ",
+    "created_at": "2024-12-31T07:33:08.009Z",
+    "updated_at": "2025-12-08T20:13:23.597Z",
+    "verified": true,
+    "reference": "acc_8327181254",
+    "business_type": "business",
+    "business_identity_type": "PASSPORT",
+    "business_identity_number": "22PP44247",
+    "business_vat_number": "0202112410489",
+    "business_registration_number": "COTONOU N° RB/COT/24 A 100961",
+    "business_category": "IT and Software",
+    "blocked": false,
+    "business_website": null,
+    "business_address": "Îlot:409, Parcelle:L, Maison: Francois MONTCHO, LITTORAL, COTONOU,\r\n2EME ARRONDISSEMENT, AHOUASSA, Bénin, Tel: 96163839, Email :\r\neliasmontcho@gmalil.com ",
+    "business_name": "Display",
+    "business_phone": "+229 01 56 56 56 99",
+    "business_email": "display56565699@gmail.com",
+    "business_owner": "MONTCHO Setondji Parfait Elias",
+    "business_company_capital": "0",
+    "business_description": "Tickets Wifi, Création digitale, médias, logiciels, applications, livres, boutique en ligne, produits et services informatiques divers, produits et services divers.",
+    "submitted": false,
+    "reject_reason": "Merci de mettre le capital à 0 en conformité avec le RCCM",
+    "has_balance_issue": false,
+    "blocked_reason": null,
+    "last_balance_issue_checked_at": "2025-12-08T20:13:23.510Z",
+    "prospect_code": null,
+    "deal_closer_code": null,
+    "manager_code": null,
+    "balance_issue_diff": 0,
+    "pos_code": "50086",
+    "pos_type": "online",
+    "business_identity_id": 94713,
+    "business_vat_id": 94714,
+    "business_registration_id": 94716,
+    "business_owner_signature_id": 94722,
+    "business_identity": {
+      "klass": "v1/asset",
+      "id": 94713,
+      "public": false,
+      "mime_type": "image/jpeg",
+      "urls": {
+        "original": "assets/94713/4c59761bfc99a2ab0f2e6fff8da4b32a.jpg",
+        "thumbnail": "assets/94713/7d5c81afafc85871d355144596c78158.jpg"
+      },
+      "original_metadata": {
+        "filename": "Passport Elias Montcho.jpg",
+        "size": 289362,
+        "mime_type": "image/jpeg"
+      },
+      "created_at": "2024-12-31T07:57:54.948Z",
+      "updated_at": "2024-12-31T07:57:56.236Z"
+    },
+    "business_vat": {
+      "klass": "v1/asset",
+      "id": 94714,
+      "public": false,
+      "mime_type": "application/pdf",
+      "urls": {
+        "original": "assets/94714/843684a109d9ff439e7a219a342b34c7.pdf",
+        "thumbnail": "assets/94714/500734bc477371f6e482e885e4fd54f2.jpeg"
+      },
+      "original_metadata": {
+        "filename": "Attestation_IFU Ets Display.pdf",
+        "size": 531748,
+        "mime_type": "application/pdf"
+      },
+      "created_at": "2024-12-31T08:00:27.324Z",
+      "updated_at": "2024-12-31T08:00:28.790Z"
+    },
+    "business_registration": {
+      "klass": "v1/asset",
+      "id": 94716,
+      "public": false,
+      "mime_type": "application/pdf",
+      "urls": {
+        "original": "assets/94716/a817eacf3f6b7fe71eefe68af4790efd.pdf",
+        "thumbnail": "assets/94716/e9f4824dea8b742fae5737f732c8fad1.jpeg"
+      },
+      "original_metadata": {
+        "filename": "REGISTRE RCCM Ets Display.pdf",
+        "size": 625915,
+        "mime_type": "application/pdf"
+      },
+      "created_at": "2024-12-31T08:03:35.304Z",
+      "updated_at": "2024-12-31T08:03:36.630Z"
+    },
+    "business_owner_signature": {
+      "klass": "v1/asset",
+      "id": 94722,
+      "public": false,
+      "mime_type": "image/jpeg",
+      "urls": {
+        "original": "assets/94722/98a7afbd2d84b150c2d92ac44c888491.jpg",
+        "thumbnail": "assets/94722/55eed019c16eb4a3e7c22fbee643f70b.jpg"
+      },
+      "original_metadata": {
+        "filename": "signature.jpg",
+        "size": 15914,
+        "mime_type": "image/jpeg"
+      },
+      "created_at": "2024-12-31T08:26:42.181Z",
+      "updated_at": "2024-12-31T08:26:43.450Z"
+    },
+    "user_accounts": [
+      {
+        "klass": "v1/user_account",
+        "id": 63452,
+        "account_id": 61813,
+        "user_id": 56919,
+        "role_id": 1
+      }
+    ],
+    "users": [
+      {
+        "klass": "v1/user",
+        "id": 56919,
+        "email": "display56565699@gmail.com",
+        "confirmed_at": "2024-12-31T07:33:41.355Z",
+        "reset_sent_at": null,
+        "admin": false,
+        "admin_role": "user",
+        "created_at": "2024-12-31T07:33:07.985Z",
+        "updated_at": "2025-10-27T14:49:19.656Z",
+        "firstname": "Elias",
+        "lastname": "Montcho",
+        "locale": "fr",
+        "two_fa_enabled": false,
+        "referrer_code": null
+      }
+    ],
+    "api_keys": [
+      {
+        "klass": "v1/api_key",
+        "id": 64032,
+        "created_at": "2024-12-31T07:33:10.387Z",
+        "updated_at": "2024-12-31T07:33:10.387Z",
+        "public_key": "pk_live_s8rEZqsSNfYxoWQiD3CNDa7F"
+      }
+    ],
+    "balances": [
+      {
+        "klass": "v1/balance",
+        "id": 2492848,
+        "amount": 0,
+        "mode": "momo_test",
+        "created_at": "2025-10-16T11:50:35.537Z",
+        "updated_at": "2025-10-16T11:50:35.537Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 2410261,
+        "amount": 0,
+        "mode": "gim_uemoa_card",
+        "created_at": "2025-10-16T11:44:13.068Z",
+        "updated_at": "2025-10-16T11:44:13.068Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568582,
+        "amount": 500,
+        "mode": "moov",
+        "created_at": "2024-12-31T07:33:08.636Z",
+        "updated_at": "2024-12-31T07:33:08.636Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568580,
+        "amount": 10218,
+        "mode": "mtn",
+        "created_at": "2024-12-31T07:33:08.373Z",
+        "updated_at": "2024-12-31T07:33:08.373Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568596,
+        "amount": 300,
+        "mode": "sbin",
+        "created_at": "2024-12-31T07:33:09.723Z",
+        "updated_at": "2024-12-31T07:33:09.723Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568581,
+        "amount": 0,
+        "mode": "stripe_gw",
+        "created_at": "2024-12-31T07:33:08.527Z",
+        "updated_at": "2024-12-31T07:33:08.527Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568583,
+        "amount": 3000,
+        "mode": "mtn_ci",
+        "created_at": "2024-12-31T07:33:08.781Z",
+        "updated_at": "2024-12-31T07:33:08.781Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568585,
+        "amount": 0,
+        "mode": "orange_ci",
+        "created_at": "2024-12-31T07:33:09.008Z",
+        "updated_at": "2024-12-31T07:33:09.008Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568586,
+        "amount": 0,
+        "mode": "orange_sn",
+        "created_at": "2024-12-31T07:33:09.071Z",
+        "updated_at": "2024-12-31T07:33:09.071Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568587,
+        "amount": 0,
+        "mode": "free_sn",
+        "created_at": "2024-12-31T07:33:09.104Z",
+        "updated_at": "2024-12-31T07:33:09.104Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568588,
+        "amount": 0,
+        "mode": "airtel_ne",
+        "created_at": "2024-12-31T07:33:09.166Z",
+        "updated_at": "2024-12-31T07:33:09.166Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568589,
+        "amount": 0,
+        "mode": "togocel",
+        "created_at": "2024-12-31T07:33:09.225Z",
+        "updated_at": "2024-12-31T07:33:09.225Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568590,
+        "amount": 0,
+        "mode": "orange_ml",
+        "created_at": "2024-12-31T07:33:09.271Z",
+        "updated_at": "2024-12-31T07:33:09.271Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568591,
+        "amount": 0,
+        "mode": "ecobank_tpe",
+        "created_at": "2024-12-31T07:33:09.365Z",
+        "updated_at": "2024-12-31T07:33:09.365Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568592,
+        "amount": 0,
+        "mode": "orabank_tpe",
+        "created_at": "2024-12-31T07:33:09.411Z",
+        "updated_at": "2024-12-31T07:33:09.411Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568593,
+        "amount": 0,
+        "mode": "uba",
+        "created_at": "2024-12-31T07:33:09.472Z",
+        "updated_at": "2024-12-31T07:33:09.472Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568594,
+        "amount": 0,
+        "mode": "uba_atm",
+        "created_at": "2024-12-31T07:33:09.545Z",
+        "updated_at": "2024-12-31T07:33:09.545Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568595,
+        "amount": 0,
+        "mode": "bmo",
+        "created_at": "2024-12-31T07:33:09.650Z",
+        "updated_at": "2024-12-31T07:33:09.650Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568597,
+        "amount": 0,
+        "mode": "wave_sn",
+        "created_at": "2024-12-31T07:33:09.793Z",
+        "updated_at": "2024-12-31T07:33:09.793Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568598,
+        "amount": 0,
+        "mode": "wave_ci",
+        "created_at": "2024-12-31T07:33:09.847Z",
+        "updated_at": "2024-12-31T07:33:09.847Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568599,
+        "amount": 0,
+        "mode": "moov_ci",
+        "created_at": "2024-12-31T07:33:09.914Z",
+        "updated_at": "2024-12-31T07:33:09.914Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568600,
+        "amount": 0,
+        "mode": "moov_bf",
+        "created_at": "2024-12-31T07:33:10.007Z",
+        "updated_at": "2024-12-31T07:33:10.007Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568601,
+        "amount": 0,
+        "mode": "orange_bf",
+        "created_at": "2024-12-31T07:33:10.091Z",
+        "updated_at": "2024-12-31T07:33:10.091Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568602,
+        "amount": 0,
+        "mode": "coris_money",
+        "created_at": "2024-12-31T07:33:10.217Z",
+        "updated_at": "2024-12-31T07:33:10.217Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568603,
+        "amount": 0,
+        "mode": "wave_direct_ci",
+        "created_at": "2024-12-31T07:33:10.284Z",
+        "updated_at": "2024-12-31T07:33:10.284Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568604,
+        "amount": 0,
+        "mode": "my_feda",
+        "created_at": "2024-12-31T07:33:10.355Z",
+        "updated_at": "2024-12-31T07:33:10.355Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 1568584,
+        "amount": 200,
+        "mode": "moov_tg",
+        "created_at": "2024-12-31T07:33:08.961Z",
+        "updated_at": "2024-12-31T07:33:08.961Z"
+      },
+      {
+        "klass": "v1/balance",
+        "id": 2102767,
+        "amount": 0,
+        "mode": "bank_transfer",
+        "created_at": "2025-07-16T00:24:07.356Z",
+        "updated_at": "2025-07-16T00:24:07.356Z"
+      }
+    ],
+    "bank_accounts": [],
+    "mobile_accounts": [
+      {
+        "klass": "v1/mobile_account",
+        "id": 18837,
+        "account_id": 61813,
+        "verified": true,
+        "holder": "MONTCHO Setondji Parfait Elias",
+        "name": "2290156565699 (BJ)",
+        "mode": "mtn_open",
+        "created_at": "2025-07-04T17:28:25.955Z",
+        "updated_at": "2025-07-04T17:29:15.269Z",
+        "deleted_at": null
+      },
+      {
+        "klass": "v1/mobile_account",
+        "id": 18836,
+        "account_id": 61813,
+        "verified": true,
+        "holder": "MONTCHO Setondji Parfait Elias",
+        "name": "2290196163839 (BJ)",
+        "mode": "mtn_open",
+        "created_at": "2025-07-04T17:24:05.672Z",
+        "updated_at": "2025-07-04T17:27:15.405Z",
+        "deleted_at": null
+      }
+    ],
+    "card_accounts": [],
+    "currencies": [
+      {
+        "klass": "v1/currency",
+        "id": 1,
+        "name": "FCFA",
+        "iso": "XOF",
+        "code": 952,
+        "prefix": null,
+        "suffix": "CFA",
+        "div": 1,
+        "default": true,
+        "created_at": "2018-05-28T15:29:17.866Z",
+        "updated_at": "2025-10-16T11:44:56.224Z",
+        "modes": [
+          "mtn",
+          "cybersource",
+          "moov",
+          "mtn_ci",
+          "moov_tg",
+          "orange_ci",
+          "orange_sn",
+          "free_sn",
+          "airtel_ne",
+          "togocel",
+          "orange_ml",
+          "mtn_open",
+          "mtn_ecw",
+          "ecobank_tpe",
+          "orabank_tpe",
+          "uba",
+          "stripe_gw",
+          "uba_atm",
+          "bmo",
+          "mtn_open_ci",
+          "sbin",
+          "wave_sn",
+          "wave_ci",
+          "moov_ci",
+          "moov_bf",
+          "orange_bf",
+          "coris_money",
+          "wave_direct_ci",
+          "my_feda",
+          "bank_transfer",
+          "gim_uemoa_card"
+        ]
+      }
+    ]
+  }
+}
