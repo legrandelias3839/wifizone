@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portail Captif MikroTik > Statut</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: url(img/fondo.jpg) no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Modal noir transparent animé */
+    .modal-content {
+      background-color: rgba(0,0,0,0.9) !important;
+      border: none;
+      border-radius: 20px;
+      color: white;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-header, .modal-footer {
+      border: none;
+    }
+
+    /* Boutons 3D */
+    .btn-3d, .btn-purple {
+      background: linear-gradient(45deg, #FF5722, #FF9800);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 30px;
+      font-weight: bold;
+      box-shadow: 0 0 15px rgba(255, 87, 34, 0.7);
+      transition: transform 0.3s ease;
+      margin: 5px;
+    }
+
+    .btn-purple {
+      background: purple;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .btn-3d:hover {
+      transform: scale(1.05);
+    }
+
+    .detail-box {
+      font-size: 1.3em;
+      color: #ffc107;
+      margin-top: 10px;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      color: #ccc;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Modal principal : Statut -->
+<div class="modal fade show d-block" id="statusModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Statut de votre session</h5>
+        <button type="button" class="close text-white" onclick="window.location.href='$(link-logout)'">&times;</button>
+      </div>
+      <div class="modal-body">
+        <table class="table text-white">
+          <tr><td>Utilisateur</td><td>$(username)</td></tr>
+          <tr><td>IP</td><td>$(ip)</td></tr>
+          <tr><td>MAC</td><td>$(mac)</td></tr>
+          <tr><td>Temps de connexion</td><td>$(uptime)</td></tr>
+          $(if session-time-left)
+          <tr><td>Temps restant</td><td>$(session-time-left)</td></tr>
+          $(endif)
+          <tr><td>Consommation</td><td>$(bytes-in-nice) / $(bytes-out-nice)</td></tr>
+        </table>
+      </div>
+      <div class="modal-footer d-flex justify-content-between flex-wrap">
+        <!-- Bouton WhatsApp -->
+        <a href="https://api.whatsapp.com/send?phone=22956565699&text=Bonjour%2C%20Je%20suis%20un%20Client%20Wifi"
+           class="btn btn-3d" target="_blank">Contactez-nous</a>
+
+        <!-- Bouton Déconnexion -->
+        <a href="$(link-logout)" class="btn btn-3d">Se déconnecter</a>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <!-- Bouton Acheter Forfaits Internet (sur sa propre ligne) -->
+        <button class="btn btn-3d" data-toggle="modal" data-target="#achatForfaitsInternetModal">ACHETER FORFAITS INTERNET</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Achat Forfaits Internet -->
+<div class="modal fade" id="achatForfaitsInternetModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content p-3">
+      <div class="modal-header border-0">
+        <h5 class="modal-title text-light">FORFAITS INTERNET</h5>
+        <button type="button" class="close text-light" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <button class="btn-purple mb-2" data-toggle="modal" data-target="#forfaitNormalModal">FORFAIT NORMAL</button>
+        <button class="btn-purple mb-2" data-toggle="modal" data-target="#forfaitPremiumModal">FORFAIT PREMIUM</button>
+        <button class="btn-purple mb-2" data-toggle="modal" data-target="#forfaitVipModal">FORFAIT VIP</button>
+        <button class="btn-purple mb-2" data-toggle="modal" data-target="#forfaitFlashModal">FORFAIT FLASH</button>
+        <button class="btn-purple" data-toggle="modal" data-target="#forfaitIllimiteModal">FORFAIT ILLIMITÉ</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Forfait Normal -->
+<div class="modal fade" id="forfaitNormalModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content p-3">
+      <div class="modal-header border-0">
+        <h5 class="modal-title forfait-titre">FORFAIT NORMAL</h5>
+        <button type="button" class="close text-light" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body text-center">
+        <button class="btn-acheter-style pay-btn" data-amount="196" data-description="Achat voucher 200 F – 1 jour - NORMAL"
+          data-profile="CODENORMAL" data-customer-email="displayclientwifi@gmail.com"
+          data-customer-lastname="Clientwifi" data-customer-firstname="Forfaitnormal">
+          ACHETER 200F – 1 JOUR
+        </button>
+        <button class="btn-details" onclick="showDetails('normal')">Détails</button>
+        <div id="details-normal" class="detail-box" style="display:none;">
+          Vitesse : 2M/2M<br>
+          Validité : 24 heures après activation
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button class="btn btn-secondary" onclick="retourVersForfaitsInternet()">Retour</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Forfait Premium -->
+<div class="modal fade" id="forfaitPremiumModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content p-3">
+      <div class="modal-header border-0">
+        <h5 class="modal-title forfait-titre">FORFAIT PREMIUM</h5>
+        <button type="button" class="close text-light" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body text-center">
+        <button class="btn-acheter-style pay-btn" data-amount="295"
+          data-description="Achat voucher 300 F – 1 jour - PREMIUM" data-profile="CODEPRENIUM"
+          data-customer-email="displayclientwifi@gmail.com" data-customer-lastname="Clientwifi"
+          data-customer-firstname="Forfaitpremium">
+          ACHETER 300F – 1 JOUR
+        </button>
+        <button class="btn-details" onclick="showDetails('premium')">Détails</button>
+        <div id="details-premium" class="detail-box" style="display:none;">
+          Vitesse : 4M/4M (2× rapide)<br>
+          Validité : 24 heures après activation
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button class="btn btn-secondary" onclick="retourVersForfaitsInternet()">Retour</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Forfait VIP -->
+<div class="modal fade" id="forfaitVipModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content p-3">
+      <div class="modal-header border-0">
+        <h5 class="modal-title forfait-titre">FORFAIT VIP 2 JOURS</h5>
+        <button type="button" class="close text-light" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body text-center">
+        <button class="btn-acheter-style pay-btn" data-amount="491"
+          data-description="Achat voucher 500 F – 2 jours - VIP" data-profile="CODEVIP"
+          data-customer-email="displayclientwifi@gmail.com" data-customer-lastname="Clientwifi"
+          data-customer-firstname="Forfaitvip">
+          ACHETER 500F – 2 JOURS
+        </button>
+        <button class="btn-details" onclick="showDetails('vip')">Détails</button>
+        <div id="details-vip" class="detail-box" style="display:none;">
+          Vitesse : 10M/10M (3× rapide)<br>
+                    Validité : 48 heures après activation
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button class="btn btn-secondary" onclick="retourVersForfaitsInternet()">Retour</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Forfait Flash -->
+<div class="modal fade" id="forfaitFlashModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content p-3">
+      <div class="modal-header border-0">
+        <h5 class="modal-title forfait-titre">FORFAIT FLASH 3 JOURS</h5>
+        <button type="button" class="close text-light" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body text-center">
+        <button class="btn-acheter-style pay-btn" data-amount="982"
+          data-description="Achat voucher 1000 F – 3 jours - FLASH" data-profile="CODEFLASH"
+          data-customer-email="displayclientwifi@gmail.com" data-customer-lastname="Clientwifi"
+          data-customer-firstname="Forfaitflash">
+          ACHETER 1000F – 3 JOURS
+        </button>
+        <button class="btn-details" onclick="showDetails('flash')">Détails</button>
+        <div id="details-flash" class="detail-box" style="display:none;">
+          Vitesse : 20M/20M (Ultra rapide)<br>
+          Validité : 72 heures après activation
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button class="btn btn-secondary" onclick="retourVersForfaitsInternet()">Retour</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Forfait Illimité -->
+<div class="modal fade" id="forfaitIllimiteModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content p-3">
+      <div class="modal-header border-0">
+                <h5 class="modal-title forfait-titre">FORFAIT ILLIMITÉ 3 JOURS</h5>
+        <button type="button" class="close text-light" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body text-center">
+        <button class="btn-acheter-style pay-btn" data-amount="1960"
+          data-description="Achat voucher 2000 F – 3 jours - ILLIMITE"
+          data-profile="CODEILLIMITE" data-customer-email="displayclientwifi@gmail.com"
+          data-customer-lastname="Clientwifi" data-customer-firstname="Forfaitillimite">
+          ACHETER 2000F – 3 JOURS
+        </button>
+        <button class="btn-details" onclick="showDetails('illimite')">Détails</button>
+        <div id="details-illimite" class="detail-box" style="display:none;">
+          Vitesse : 100M/100M (Maximale)<br>
+          Validité : 72 heures après activation
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button class="btn btn-secondary" onclick="retourVersForfaitsInternet()">Retour</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="https://cdn.fedapay.com/checkout.js"></script>
+<script>
+  // Afficher / masquer détails
+  function showDetails(id) {
+    const el = document.getElementById(`details-${id}`);
+    el.style.display = el.style.display === 'none' ? 'block' : 'none';
+  }
+
+  // Retour vers forfaits
+  function retourVersForfaitsInternet() {
+    $('.modal').modal('hide');
+    setTimeout(() => $('#achatForfaitsInternetModal').modal('show'), 300);
+  }
+
+  // FedaPay
+  document.addEventListener('DOMContentLoaded', () => {
+    const PUBLIC_KEY = 'pk_live_s8rEZqsSNfYxoWQiD3CNDa7F';
+    const REDIR = 'http://10.10.10.160:5656/voucher/';
+    document.querySelectorAll('.pay-btn').forEach(btn => {
+      const amt = parseInt(btn.dataset.amount, 10);
+      const desc = btn.dataset.description;
+      const profile = btn.dataset.profile;
+
+      FedaPay.init(btn, {
+        public_key: PUBLIC_KEY,
+        transaction: {
+          amount: amt,
+          currency: 'XOF',
+          description: desc,
+          customer: {
+            email: 'displayclientwifi@gmail.com',
+            lastname: 'ClientWifi',
+            firstname: 'ClientWifi'
+          }
+        },
+        onComplete(tx) {
+          if (tx?.transaction?.id) {
+            window.location.href = REDIR + tx.transaction.id + '?profile=' + profile;
+          } else {
+            alert("Erreur : ID de transaction non reçu.");
+          }
+        },
+        onCancel() {
+          alert('Paiement annulé.');
+        }
+      });
+    });
+  });
+
+  // Empêche fermeture modal principal
+  $('#statusModal').modal({ backdrop: 'static', keyboard: false });
+</script>
+
+<script>
+/* Flag pour ignorer le hidden.bs.modal quand on fait un retour vers forfaits */
+let ignoreHidden = false;
+
+/* 1. Ouvre un modal → ferme les autres */
+$(document).on('show.bs.modal', e => $('.modal.show').not(e.target).modal('hide'));
+
+/* 2. Retour vers Forfaits Internet */
+function retourVersForfaitsInternet() {
+  ignoreHidden = true;              // on signale qu’on ne veut pas de ré-ouverture
+  $('.modal').modal('hide');
+  setTimeout(() => {
+    $('#achatForfaitsInternetModal').modal('show');
+    ignoreHidden = false;           // ré-autorise le comportement normal
+  }, 350); // délais légèrement supérieur à l’animation Bootstrap
+}
+
+/* 3. Après fermeture d’un modal : ré-ouvre le principal sauf si flag actif */
+$(document).on('hidden.bs.modal', () => {
+  if (!ignoreHidden && $('.modal.show').length === 0) {
+    $('#statusModal').modal('show');
+  }
+});
+</script>
+
+<footer class="footer">
+  <p>&copy; 2025 DISPLAY</p>
+</footer>
+</body>
+</html>

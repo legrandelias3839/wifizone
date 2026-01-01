@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Connexion réussie – DISPLAY</title>
+  <meta http-equiv="refresh" content="0; url=http://display.bj/status">
+  <style>
+    html,body{height:100%;margin:0;background:url(img/fondo.jpg) no-repeat center center fixed;background-size:cover;font-family:'Segoe UI',sans-serif;color:#fff}
+    .overlay{display:flex;align-items:center;justify-content:center;height:100%}
+    .card{background:rgba(0,0,0,.85);border:none;border-radius:20px;padding:2rem;text-align:center;animation:fadeIn .4s}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    .spinner-border{width:3rem;height:3rem;margin-bottom:1rem}
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="card">
+      <div class="spinner-border text-warning" role="status"></div>
+      <h5>Connexion réussie !</h5>
+      <p>Ouverture de votre espace client …</p>
+    </div>
+  </div>
+
+  <!-- Script principal : ouvre dans le même onglet / navigateur -->
+  <script>
+    /* 1) Change le nom de la fenêtre pour forcer le navigateur principal */
+    window.name = '_top';           // important : évite la pop-up captive
+    /* 2) Remplace la page actuelle par display.bj/status */
+    window.location.replace('http://display.bj/status');
+  </script>
+</body>
+</html>
